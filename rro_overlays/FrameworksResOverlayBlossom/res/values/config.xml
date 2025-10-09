@@ -300,6 +300,13 @@
         <item>253</item>
         <item>254</item>
         <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
     </integer-array>
 
     <!-- An array of floats describing the screen brightness in nits corresponding to the backlight
@@ -378,6 +385,11 @@
         <item>419.264</item>
         <item>421.264</item>
         <item>424.646</item>
+        <item>427.6287</item>
+        <item>427.6287</item>
+        <item>427.6287</item>
+        <item>427.6287</item>
+        <item>427.6287</item>
         <item>427.6287</item>
     </array>
     <!-- NOTE: The telephony module is no longer reading the configuration below for available
