@@ -77,3 +77,6 @@ setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 
 "${MY_DIR}/setup-makefiles.sh"
+
+# libutilits-v32
+patchelf --add-needed libutils-v32.so vendor/bin/hw/mtkfusionrild
