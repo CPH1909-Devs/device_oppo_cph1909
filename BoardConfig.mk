@@ -4,12 +4,12 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-BOARD_VENDOR := xiaomi
+BOARD_VENDOR := oppo
 
-DEVICE_PATH := device/xiaomi/blossom
+DEVICE_PATH := device/oppo/cph1909
 
 # OTA
-TARGET_OTA_ASSERT_DEVICE := dandelion,angelica,angelican,cattail,angelicain,blossom
+TARGET_OTA_ASSERT_DEVICE := cph1909,cph1920,cph1912
 
 # Build
 BUILD_BROKEN_DUP_RULES := true
@@ -42,7 +42,7 @@ ART_BUILD_HOST_DEBUG := false
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6765
-TARGET_BOOTLOADER_BOARD_NAME := blossom
+TARGET_BOOTLOADER_BOARD_NAME := cph1909
 
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_HAVE_MTK_FM := true
@@ -52,22 +52,22 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_xiaomi_blossom
-TARGET_RECOVERY_DEVICE_MODULES := libinit_xiaomi_blossom
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_oppo_cph1909
+TARGET_RECOVERY_DEVICE_MODULES := libinit_oppo_cph1909
 
 # Jemalloc
 MALLOC_SVELTE := true
 MALLOC_SVELTE_FOR_LIBC32 := true
 
 # Kernel
-TARGET_KERNEL_CONFIG := blossom_defconfig # no file, only make build system happy
+TARGET_KERNEL_CONFIG := mt6765-18651_defconfig # no file, only make build system happy
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)-kernel/kernel # automatically copied
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)-kernel/dtb.img # for mkbootimg only
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)-kernel/dtbo.img # automatically copied
 TARGET_FORCE_PREBUILT_KERNEL := true # dont really build with our imcomplete "source"
 
 # Bootloader
-BOARD_BOOT_HEADER_VERSION := 2
+BOARD_BOOT_HEADER_VERSION := 0
 BOARD_KERNEL_BASE := 0x40078000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_OFFSET := 0x00008000
@@ -91,7 +91,7 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 BOARD_KERNEL_CMDLINE += kpti=off
 BOARD_KERNEL_CMDLINE += quiet loglevel=3
@@ -190,4 +190,4 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 
 # Inherit the proprietary files
-include vendor/xiaomi/blossom/BoardConfigVendor.mk
+include vendor/oppo/cph1909/BoardConfigVendor.mk
